@@ -1,0 +1,2 @@
+export const SITE_PHONE_DISPLAY = "+1 505-479-6474";
+export const SITE_PHONE_TEL = "+15054796474";

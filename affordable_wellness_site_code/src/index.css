@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Hanken+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@theme {
+  --breakpoint-*: initial;             /* reset */
+  --breakpoint-tablet: 40rem;
+  --breakpoint-laptop: 64rem;
+  --breakpoint-desktop: 80rem;
+}
+
+@layer base {
+
+  
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 213 38% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 38% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 38% 20%;
+
+    --primary: 213 42% 31%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 20% 95%;
+    --secondary-foreground: 213 42% 31%;
+
+    --muted: 40 20% 95%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 66 92% 79%;
+    --accent-foreground: 213 38% 20%;
+
+    --navy: 213 38% 28%;
+    --lime: 72 100% 75%;
+    --section-gray: 0 0% 98%;
+
+    /* Figma design tokens */
+    --figma-navy: 213 38% 28%;
+    --figma-lime: 72 100% 75%;
+    --figma-cream: 40 20% 95%;
+    --figma-blue-card: 213 52% 95%;
+    --figma-text: 220 13% 13%;
+    --figma-muted: 220 9% 46%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+  --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 213 42% 31%;
+
+    --radius: 1rem;
+    
+    --gradient-orange: linear-gradient(135deg, hsl(28 89% 65%), hsl(32 85% 72%));
+    --gradient-orange-soft: linear-gradient(180deg, hsl(32 100% 96%), hsl(0 0% 100%));
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    
+    --breakpoint-tablet: 40rem;
+    --breakpoint-laptop: 64rem;
+    --breakpoint-desktop: 80rem;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 213 42% 31%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 66 92% 79%;
+    --accent-foreground: 213 38% 20%;
+
+    --destructive: 0 62.8% 50.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 213 42% 31%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* Checkout redesign — matches checkout-redesign-mauve.vercel.app */
+.checkout-flow {
+  --background: 45 20% 97%;
+  --foreground: 213 52% 21%;
+  --card: 0 0% 100%;
+  --card-foreground: 213 52% 21%;
+  --primary: 213 60% 21%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 40 15% 94%;
+  --secondary-foreground: 213 52% 21%;
+  --muted: 40 15% 94%;
+  --muted-foreground: 220 9% 46%;
+  --accent: 72 88% 69%;
+  --accent-foreground: 213 52% 21%;
+  --border: 40 10% 88%;
+  --input: 40 10% 88%;
+  --ring: 213 60% 21%;
+  background-color: #f8f7f3;
+  font-family: 'Hanken Grotesk', 'Manrope', sans-serif;
+}
+
+.checkout-flow .font-heading {
+  font-family: 'Poppins', 'Manrope', sans-serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Manrope', 'Inter', sans-serif;
+  }
+}
+
+/* mobile */
+@media (max-width:480px) {
+  button.hero{
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+    width: 100% !important;
+    max-width: none;
+  }
+}
+
+@layer components {
+  .figma-h1 {
+    @apply text-[40px] sm:text-[52px] lg:text-[64px] max-[480px]:text-[32px] font-medium leading-[1.12] tracking-[-0.03em] text-[#121212];
+  }
+
+  .figma-section-title {
+    @apply text-[28px] sm:text-[36px] lg:text-[44px] font-extrabold leading-[1.15] tracking-[-0.02em] text-[#121212];
+  }
+
+  .figma-body {
+    @apply text-base lg:text-lg leading-[1.5] text-[#121212];
+  }
+
+  .figma-btn-primary {
+    @apply inline-flex items-center justify-center gap-3 rounded-full bg-[#2D476F] hover:bg-[#243247] text-white font-semibold transition-colors;
+  }
+
+  .figma-btn-lime {
+    @apply inline-flex items-center justify-center rounded-full bg-[#F5FB98] hover:bg-[#eef5a0] text-[#111827] font-bold text-sm transition-colors;
+  }
+
+  .figma-badge-gray {
+    @apply inline-flex items-center rounded-full bg-[#F3F4F6] px-4 py-1.5 text-[12px] font-semibold text-[#374151];
+  }
+
+  .figma-badge-lime {
+    @apply inline-flex items-center rounded-full bg-[#F5FB98] px-4 py-1.5 text-[12px] font-semibold text-[#111827];
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.bg-hero-gradient {
+  background: radial-gradient(
+    circle at 50% 0%, 
+    hsl(184 30% 100%) 0%,
+    hsl(184 20% 96%) 50%,
+    hsl(184 15% 92%) 100%
+  );
+}
+
+/* desktop */
+@media (min-width:480px) {
+  button.hero{
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.font-bolder{
+  font-weight: 800;
+}
+
+button[role="combobox"], input{
+  border: solid 2px  #bcc1d2 !important;
+}
+
+hr{
+border-color: #bcc1d2;
+}
+a{
+  line-break: anywhere;
+}
+
+.text-xxs{
+      font-size: 0.65rem;
+}
+
+.summary-icon{
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Questionnaire quiz UI — theme primary (#2D476F) */
+.questionnaire-page button[role="combobox"]:focus,
+.questionnaire-page button[role="combobox"][data-state="open"] {
+  border-color: hsl(var(--primary)) !important;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+.questionnaire-page input:focus-visible {
+  border-color: hsl(var(--primary)) !important;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+/* Updated Card Backgrounds with White-to-Grey Radial Gradient */
+.card-bg.tirzepatide {
+  background: radial-gradient(
+      circle at top left,
+      #FFFFFF 0%,
+      #F2F0EE 35%,
+      #E0E6EF 70%,
+      #D4E0ED 100%
+    );
+}
+
+.card-bg.semaglutide {
+  background: radial-gradient(
+      circle at top left,
+      #FFFFFF 0%,
+      #F2F0EE 35%,
+      #E0E6EF 70%,
+      #D4E0ED 100%
+    );
+}
+.card-bg{
+  cursor: pointer;
+  height: 330px;
+  /* background-size: 70% auto !important; */
+}
+
+@media screen and (max-width: 768px) {
+  .card-bg{
+    height: 260px;
+    /* background-size: 70% auto !important; */
+  }
+}
+
+.toggle{
+  background: linear-gradient(90deg, #2D476F 0%, #2D476F 100%);
+}
+
+/* Checkout plan cards — use theme primary */
+.toggle-selected {
+  background: linear-gradient(
+    180deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--primary) / 0.82) 100%
+  );
+}
+
+.best-price-label {
+  background: linear-gradient(
+    90deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--primary) / 0.88) 100%
+  );
+}
+
+@keyframes bmi-number-pop {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.92);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes review-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-review-marquee {
+  animation: review-marquee 45s linear infinite;
+}
+
+.animate-review-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes shine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.animate-shine {
+  animation: shine 3.5s infinite linear;
+}
+
+@keyframes graphLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-graphLine {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: graphLine 2s ease forwards;
+}
+
+/* Questionnaire quiz UI — theme primary (#2D476F) */
+.questionnaire-page button[role="combobox"]:focus,
+.questionnaire-page button[role="combobox"][data-state="open"] {
+  border-color: hsl(var(--primary)) !important;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
+
+.questionnaire-page input:focus-visible {
+  border-color: hsl(var(--primary)) !important;
+  box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+}
